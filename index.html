@@ -10,15 +10,15 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // Enlace profundo de Facebook (intenta abrir la app)
-        const facebookDeepLink = "fb://profile/acheidemoff"; // Deeplink para abrir Facebook en la app
+        // Enlace universal de Facebook (intenta abrir la app)
+        const facebookUniversalLink = "https://www.facebook.com/acheidemoff";
         // Enlace web de Facebook (como respaldo)
         const facebookWebUrl = "https://www.facebook.com/acheidemoff";
 
         // Redirección
         if (isMobile()) {
-            // Intenta abrir la aplicación de Facebook
-            window.location.href = facebookDeepLink;
+            // Intenta abrir la aplicación de Facebook usando el enlace universal
+            window.location.href = facebookUniversalLink;
             // Si no se abre la app, redirige a la versión web después de un tiempo
             setTimeout(function() {
                 window.location.href = facebookWebUrl;
