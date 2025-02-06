@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando a Facebook</title>
+    <script type="text/javascript">
+        // Función para detectar si es un dispositivo móvil
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Enlace profundo de Facebook (intenta abrir la app)
+        const facebookDeepLink = "fb://profile/acheidemoff"; // Deeplink para abrir Facebook en la app
+        // Enlace web de Facebook (como respaldo)
+        const facebookWebUrl = "https://www.facebook.com/acheidemoff";
+
+        // Redirección
+        if (isMobile()) {
+            // Intenta abrir la aplicación de Facebook
+            window.location.href = facebookDeepLink;
+            // Si no se abre la app, redirige a la versión web después de un tiempo
+            setTimeout(function() {
+                window.location.href = facebookWebUrl;
+            }, 1000); // Espera 1 segundo antes de redirigir
+        } else {
+            // Si no es un dispositivo móvil, redirige a la versión web
+            window.location.href = facebookWebUrl;
+        }
+    </script>
+</head>
+<body>
+    <p>Estás siendo redirigido a Facebook. Si no funciona, haz clic <a href="https://www.facebook.com/acheidemoff">aquí</a>.</p>
+</body>
+</html>
